@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eau Claire's Salon</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="render-body">
+        <h1>Pierre's Sweet & Savory Treats</h1>
+        <div class="three-buttons">
+          @Html.ActionLink("LOGIN/REGISTER", "Index", "Account", null, new { @class="btn" })
+          @Html.ActionLink("FLAVORS", "Index", "Flavors", null, new { @class="btn" })
+          @Html.ActionLink("TREATS", "Index", "Treats", null, new { @class="btn" })
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
