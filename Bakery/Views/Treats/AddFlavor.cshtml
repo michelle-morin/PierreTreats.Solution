@@ -4,7 +4,7 @@
 
 @model Bakery.Models.Treat
 
-<h1>ADD NEW FLAVOR FOR @Html.DisplayFor(model => model.Name)</h1>
+<h1>ADD NEW FLAVOR FOR<br>@Html.DisplayFor(model => model.Name)</h1>
 
 @using (Html.BeginForm())
 {
@@ -16,5 +16,4 @@
   <input type="submit" class="btn-block" value="ADD THIS FLAVOR!" />
 }
 
-<h4>IS THIS A NEW FLAVOR FOR THE BAKERY?</h4>
-@Html.ActionLink("YES, ADD NEW FLAVOR", "Create", "Flavors", null, new { @class="btn-block" })
+@Html.ActionLink("DESIRED FLAVOR ISN'T LISTED ABOVE", "Create", "Flavors", null, new { @class="btn-block" })
