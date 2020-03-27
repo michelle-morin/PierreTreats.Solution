@@ -1,34 +1,34 @@
-# Pierre's Sweet and Savory Treats
+# Pierre's Sweet & Savory Treats
 
-#### _Advanced Databases and Authentication Independent Project for Epicodus_, _Mar. 27 2020_
+#### _Advanced databases and authentication independent project for Epicodus_
 
-#### By _**Michelle Morin**_
+#### By: **Michelle Morin**, March 27 2020
 
 ## Description
 
-This is an ASP.NET Core MVC application for Pierre's Bakery, to market his sweet and savory treats. The application includes user authentication and a many-to-many relationship between ``Treat``s and ``Flavor``s. A treat can have many flavors (e.g., sweet, savory, spicy) and a flavor can have many different treats (e.g., a sweet flavor could include chocolate croissants, cheesecake, etc.). A user is able to navigate to the splash page that lists all treats and flavors, and may click on an individual treat or flavor to see all the treats/flavors that belong to it.
+This is a web application for Pierre's Bakery, to market his sweet and savory treats. This application includes user authentication via Identity and a many-to-many relationship between ``Treat``s and ``Flavor``s. A treat can have many flavors (e.g., sweet, savory, spicy) and a flavor can have many different treats (e.g., a sweet flavor could include chocolate croissants, donuts, cheesecake, etc.). Registered users that are logged into the web application are able to create, read, update, and delete treats and flavors, whereas anonymous users are only able to view lists of all treats and flavors and corresponding detail pages for each treat and flavor.
 
 ## Specifications:
 
 | Specification | Example Input | Example Output |
 | ------------- |:-------------:| -------------------:|
-| If user visits '/' root route, the application displays a splash page with links to '/treats' and '/flavors', as well as links to login/register | user visits '/' route | application displays homepage |
-| Application allows a user to register for an account with Identity | user clicks "create account" option on splash page | application redirects to form for creating a user account |
-| Application allows a registered user to login | registered user clicks "login" option on splash page | application redirects to login screen |
-| Application allows a registered user to logout | registered user clicks "logout" option | application logs out of user account |
-| Only logged-in users are able to create, update, and delete flavors/treats | user is not logged in | user unable to create, update, delete |
-| If user visits '/treats' route, applications displays all treats in database, each clickable to view available flavors for that treat | user visits '/treats' route | application displays list of treats |
-| If a registered user clicks "add new treat" link at '/treats', the application redirects to a form ('/treats/create') for adding a new treat | registered user clicks "add new treat" | the application redirects to new treat form |
-| If user visits '/flavors' route, applications displays all flavors in database, each clickable to view available treats of that flavor | user visits '/flavors' route | application displays list of flavors |
-| If a registered user clicks "add new flavor" link at '/flavors', the application redirects to a form ('/flavors/create') for adding a new flavor | registered user clicks "add new flavor" | the application redirects to new flavor form |
-| When a registered user submits the new flavor form, the application adds the new flavor to the flavors table of the michelle_morin database and redirects to '/flavors' | registered user submits new flavor form | the application adds new flavor to correct database table and redirects to page displaying all flavors |
-| When a registered user submits the new treat form, the application adds the new treat to the treats table of the michelle_morin database and redirects to '/treats' | registered user submits new treat form | the application adds new treat to correct database table and redirects to page displaying all treats |
-| If user visits '/treats/{id}', the application displays a list of flavors for that treat | user clicks on specific treat in list at '/treats' | the application redirects to '/treats/{id}' to display available flavors of that treat |
-| If user visits '/flavors/{id}', the application displays a list of treats of that flavor | user clicks on specific flavor in list at '/flavors' | the application redirects to '/flavors/{id}' to display available treats of that flavor |
-| A registered user can add flavors to a specific treat | registered user clicks "add new flavor" on '/treats/{id}' page | the application redirects to a form for adding a new flavor |
-| A registered user can add treats to a specific flavor | registered user clicks "add new treat" on '/flavors/{id}' page | the application redirects to a form for adding a new treat |
-| A registered user can delete a treat from the list of all treats | registered user selects "delete treat" option on '/treats/{id}' | application deletes treat from database |
-| A registered user can delete a flavor from the list of all flavors | registered user selects "delete flavor" option on '/flavor/{id}' | application deletes flavor from database |
+| If user visits '/' root route, the application displays a splash page with links to '/Treats' and '/Flavors', and '/Account' | user visits '/' route | application displays homepage |
+| Application allows a user to register for an account with Identity | user clicks "login/register" option on splash page, then completes form at '/Account/Register' | application creates new user account and redirects to '/Login' |
+| Application allows a registered user to login | registered user clicks "log in" option at '/Account' | application redirects to '/Account/Login' |
+| Application allows a registered user to logout | registered user clicks "logout" option at '/Account' | application logs out of user account |
+| Only registered, logged-in users are able to create, update, and delete flavors | user is not logged in and/or not registered and clicks "add flavor", "edit flavor", or "delete flavor" | user redirected to 'Account/Login' |
+| Only registered, logged-in users are able to create, update, and delete treats | user is not logged in and/or not registered and clicks "add treat", "edit treat", or "delete treat" | user redirected to 'Account/Login' |
+| If user visits '/Treats' route, the application displays all treats in the database, each clickable to view available flavors for that treat | user visits '/Treats' | application displays list of all treats in alphabetical order |
+| If a registered user clicks "add new treat" link at '/Treats', the application redirects to a form ('/Treats/Create') for adding a new treat | registered user clicks "add new treat" | the application redirects to form at 'Treats/Create' |
+| If user visits '/Flavors' route, the application displays all flavors in the database, each clickable to view available treats of that flavor | user visits '/Flavors' | application displays list of flavors in alphabetical order |
+| If a registered user clicks "add new flavor" link at '/Flavors', the application redirects to a form ('/Flavors/Create') for adding a new flavor | registered user clicks "add new flavor" | the application redirects to form at 'Flavors/Create' |
+| When a registered user submits the new flavor form, the application adds the new flavor to the flavors table of the michelle_morin database and redirects to '/Flavors' | registered user submits new flavor form | the application adds new flavor to flavors table and redirects to '/Flavors' |
+| When a registered user submits the new treat form, the application adds the new treat to the treats table of the michelle_morin database and redirects to '/Treats' | registered user submits new treat form | the application adds new treat to treats table and redirects to '/Treats' |
+| If user visits '/Treats/{id}', the application displays a list of flavors for that treat | user clicks on specific treat in list at '/Treats' | the application redirects to '/Treats/{id}' to display description and available flavors of that treat |
+| If user visits '/Flavors/{id}', the application displays a list of treats corresponding to that flavor | user clicks on specific flavor in list at '/Flavors' | the application redirects to '/Flavors/{id}' to display available treats corresponding to that flavor |
+| A registered user can add a flavor(s) to a treat | registered user clicks "add new flavor" at '/Treats/{id}' | the application redirects to a form (at '/Treats/AddFlavor/{id}') that, when submitted, adds a new flavor to that treat |
+| A registered user can delete a treat from the list of all treats | registered user selects "delete treat" option on '/Treats/{id}' | application deletes treat from database |
+| A registered user can delete a flavor from the list of all flavors | registered user selects "delete flavor" option on '/Flavors/{id}' | application deletes flavor from database |
 
 ## Setup/Installation Requirements
 
@@ -82,21 +82,19 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 * ``cd desktop``
 * ``git clone https://github.com/michelle-morin/PierreBakery.Solution``
-* ``cd PierreBakery.Solution``
+* ``cd PierreBakery.Solution/Bakery``
 
-_Confirm that you have navigated to the PierreBakery.Solution directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
+_Confirm that you have navigated to the Bakery directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
 
-_Recreate the ``michelle_morin`` database using the following commands (in Terminal on macOS or PowerShell on Windows):_
-* ``cd Bakery``
+_Recreate the ``michelle_morin`` database using the following commands (in Terminal on macOS or PowerShell on Windows) at the root of the Bakery directory:_
 * ``dotnet restore``
 * ``dotnet build``
-* ``dotnet ef migrations add Initial``
 * ``dotnet ef database update``
 
 _Run this application by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the Bakery directory:_
 * ``dotnet run`` or ``dotnet watch run``
 
-_To view/edit the source code of this application, open the contents of the PierreBakery.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal)._
+_To view/edit the source code of this application, open the contents of the PierreBakery.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal at the root of the PierreBakery.Solution directory)._
 
 ## Technologies Used
 
