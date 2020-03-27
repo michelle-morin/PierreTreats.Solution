@@ -139,6 +139,10 @@ input, textarea, select {
   padding: 1%;
 }
 
-input.pull-right {
+.row input {
   border: none;
+}
+
+.row p {
+  text-align: right;
 }
