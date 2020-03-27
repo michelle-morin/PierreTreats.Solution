@@ -4,7 +4,7 @@
 
 @model Bakery.Models.Treat
 
-<h1>EDIT DETAILS FOR @Html.DisplayFor(model => model.Name)</h1>
+<h1>EDIT DETAILS FOR<br>@Html.DisplayFor(model => model.Name)</h1>
 
 @using (Html.BeginForm())
 {
@@ -12,6 +12,9 @@
 
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
+  <br>
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
   <br>
   @Html.Label("Select flavor")
   @Html.DropDownList("FlavorId")

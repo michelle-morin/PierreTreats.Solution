@@ -5,6 +5,7 @@
 @model Bakery.Models.Treat
 
 <h1>@Html.DisplayFor(model => model.Name)</h1>
+<h4>@Html.DisplayFor(model => model.Description)</h4>
 <hr />
 @if(@Model.Flavors.Count == 0)
 {
