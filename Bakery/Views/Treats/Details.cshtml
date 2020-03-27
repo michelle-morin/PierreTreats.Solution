@@ -12,7 +12,7 @@
 }
 else
 {
-  <h4>AVAILABLE IN THE FOLLOWING FLAVORS:</h4>
+  <h4>FLAVORS:</h4>
   @foreach(var join in Model.Flavors)
   {
     <div class="row justify-content-start">
@@ -20,7 +20,7 @@ else
       @using (Html.BeginForm("DeleteFlavor", "Treats", new { @class="col-md-6"}))
       {
         @Html.Hidden("joinId", @join.FlavorTreatId)
-        <input type="submit" value="REMOVE FLAVOR"/>
+        <input type="submit" value="remove flavor"/>
       }
     </div>
   }
