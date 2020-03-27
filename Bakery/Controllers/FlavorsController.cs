@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System;
 
 namespace Bakery.Controllers
 {
@@ -27,7 +28,9 @@ namespace Bakery.Controllers
     [AllowAnonymous]
     public ActionResult Index()
     {
-      return View(_db.Flavors.ToList());
+      List<Flavor> model = _db.Flavors.ToList();
+      model.Sort((x, y) => string.Compare(x.Name, y.Name));
+      return View(model);
     }
 
     public ActionResult Create()
@@ -38,18 +41,32 @@ namespace Bakery.Controllers
     [HttpPost]
     public ActionResult Create(Flavor flavor)
     {
-      _db.Flavors.Add(flavor);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        if (String.IsNullOrWhiteSpace(flavor.Name))
+        {
+          throw new System.InvalidOperationException("invalid input");
+        }
+        else
+        {
+          _db.Flavors.Add(flavor);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
+      catch (Exception ex)
+      {
+        return View("Error", ex.Message);
+      }
     }
 
     [AllowAnonymous]
     public ActionResult Details(int id)
     {
       var thisFlavor = _db.Flavors
-          .Include(flavor => flavor.Treats)
-          .ThenInclude(join => join.Treat)
-          .FirstOrDefault(flavor => flavor.FlavorId == id);
+        .Include(flavor => flavor.Treats)
+        .ThenInclude(join => join.Treat)
+        .FirstOrDefault(flavor => flavor.FlavorId == id);
       return View(thisFlavor);
     }
 
@@ -62,9 +79,23 @@ namespace Bakery.Controllers
     [HttpPost]
     public ActionResult Edit(Flavor flavor)
     {
-      _db.Entry(flavor).State = EntityState.Modified;
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        if (String.IsNullOrWhiteSpace(flavor.Name))
+        {
+          throw new System.InvalidOperationException("invalid input");
+        }
+        else
+        {
+        _db.Entry(flavor).State = EntityState.Modified;
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+        }
+      }
+      catch(Exception ex)
+      {
+        return View("Error", ex.Message);
+      }
     }
 
     public ActionResult Delete(int id)
