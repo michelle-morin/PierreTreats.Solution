@@ -4,8 +4,8 @@
 
 @model Bakery.Models.Treat
 
-<h1>DELETE @Html.DisplayFor(model => model.Name)?</h1>
-
+<h1>DELETE THIS TREAT?</h1>
+<h4>@Html.DisplayFor(model => model.Name)?</h4>
 @using (Html.BeginForm())
 {
   <input type="submit" class="btn-block" value="YES, DELETE" />

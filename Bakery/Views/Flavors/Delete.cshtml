@@ -4,9 +4,9 @@
 
 @model Bakery.Models.Flavor
 
-<h1>DO YOU WANT TO DELETE @Html.DisplayFor(model => model.Name)?</h1>
-
+<h1>DELETE THIS FLAVOR?</h1>
+<h4>@Html.DisplayFor(model => model.Name)</h4>
 @using (Html.BeginForm())
 {
-  <input type="submit" class="btn-block" value="YES, DELETE THIS FLAVOR" />
+  <input type="submit" class="btn-block" value="YES, DELETE" />
 }
