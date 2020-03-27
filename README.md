@@ -81,8 +81,8 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 
 _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 * ``cd desktop``
-* ``git clone https://github.com/michelle-morin/PierreBakery.Solution``
-* ``cd PierreBakery.Solution/Bakery``
+* ``git clone https://github.com/michelle-morin/PierreTreats.Solution``
+* ``cd PierreTreats.Solution/Bakery``
 
 _Confirm that you have navigated to the Bakery directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
 
@@ -94,7 +94,7 @@ _Recreate the ``michelle_morin`` database using the following commands (in Termi
 _Run this application by entering the following command in Terminal (macOS) or PowerShell (Windows) at the root of the Bakery directory:_
 * ``dotnet run`` or ``dotnet watch run``
 
-_To view/edit the source code of this application, open the contents of the PierreBakery.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal at the root of the PierreBakery.Solution directory)._
+_To view/edit the source code of this application, open the contents of the PierreTreats.Solution directory in a text editor or IDE of your choice (e.g., to open all contents of the directory in Visual Studio Code on macOS, enter the command_ ``code .`` _in Terminal at the root of the PierreTreats.Solution directory)._
 
 ## Technologies Used
 
