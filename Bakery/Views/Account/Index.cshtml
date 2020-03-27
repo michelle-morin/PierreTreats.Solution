@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using System.Security.Claims
+
+<h1>PIERRE'S BAKERY ACCOUNT AUTHENTICATION</h1>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>Hello @User.Identity.Name!</h4>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+    <input type="submit" class="btn-block" value="LOGOUT" />
+  }
+}
+else
+{
+  <div class="two-buttons">
+    @Html.ActionLink("CREATE ACCOUNT", "Register", "Account", null, new { @class="btn"})
+    @Html.ActionLink("Log in", "Login", "Account", null, new { @class="btn"})
+  </div>
+}
