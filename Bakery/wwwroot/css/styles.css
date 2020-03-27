@@ -111,18 +111,16 @@ h1 {
   width: 30%;
 }
 
-li {
+p {
   text-align: center;
-  list-style-type: none;
-  font-size: large;
+  font-size: medium;
 }
 
-li a {
-  text-align: center;
+p a {
   color: #111111;
 }
 
-li a:hover {
+p a:hover {
   color: #111111;
 }
 
@@ -139,4 +137,8 @@ input, textarea, select {
   box-shadow: none;
   margin-bottom: 1%;
   padding: 1%;
+}
+
+input.pull-right {
+  border: none;
 }
