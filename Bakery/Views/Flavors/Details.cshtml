@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Flavor;
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+<hr />
+@if(@Model.Treats.Count == 0)
+{
+  <h4>no treats of this flavor available!</h4>
+}
+else
+{
+  <h4>TREATS:</h4>
+  <ul>
+  @foreach(var join in Model.Treats)
+  {
+    <li>@Html.ActionLink($"{@join.Treat.Name}", "Details", "Treats", new { id = join.Treat.TreatId })</li>
+  }
+  </ul>
+}
+
+<div class="two-buttons">
+  @Html.ActionLink("EDIT FLAVOR", "Edit", "Flavors", new { id = Model.FlavorId }, new { @class="btn" })
+  @Html.ActionLink("DELETE FLAVOR", "Delete", "Flavors", new { id = Model.FlavorId }, new { @class="btn" })
+</div>
